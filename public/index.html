@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RAG 知识库问答系统</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="app">
+      <section class="hero">
+        <div>
+          <p class="eyebrow">Private RAG QA</p>
+          <h1>知识库问答系统</h1>
+          <p>上传资料后提问，系统会检索相关片段并给出带引用的答案。</p>
+        </div>
+        <div class="status" id="status">加载中...</div>
+      </section>
+
+      <section class="layout">
+        <aside class="panel">
+          <h2>文档</h2>
+          <form id="uploadForm">
+            <input id="files" name="files" type="file" multiple accept=".txt,.md,.pdf" />
+            <button type="submit">上传并索引</button>
+          </form>
+          <button class="secondary" id="resetBtn" type="button">清空知识库</button>
+          <div id="documents" class="document-list"></div>
+        </aside>
+
+        <section class="panel qa">
+          <h2>提问</h2>
+          <form id="askForm" class="ask-form">
+            <textarea id="question" placeholder="例如：这个项目解决了什么问题？" rows="4"></textarea>
+            <button type="submit">生成答案</button>
+          </form>
+          <article class="answer" id="answer">先上传文档，然后输入问题。</article>
+          <div class="citations" id="citations"></div>
+        </section>
+      </section>
+    </main>
+
+    <script src="/app.js"></script>
+  </body>
+</html>
