@@ -1,0 +1,23 @@
+name: RAG Eval Regression
+
+# RAG 评测回归基线：检索指标(recall@k/MRR) + 生成指标(LLM-as-a-Judge)
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  rag-eval:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: 安装依赖
+        run: pip install openai python-dotenv
+
+      - name: RAG 评测基线
+        run: python eval_rag.py
