@@ -1,6 +1,7 @@
 [
   {
     "id": 1,
+    "scenario": "事实准确",
     "question": "Whisper 的 transcribe 和 translate 有什么区别？",
     "context": "OpenAI Whisper 是一个语音识别模型，支持多种语言。它有两个主要 API：transcribe 用于把语音转写为原语言文字；translate 用于把语音翻译为英文文本。Whisper v2-large 在 Common Voice 数据集上的词错率(WER)为 8.2%。",
     "reference_answer": "transcribe 把语音转写为原语言文字，translate 把语音翻译成英文。",
@@ -9,6 +10,7 @@
   },
   {
     "id": 2,
+    "scenario": "事实准确",
     "question": "Docker 镜像和容器是什么关系？",
     "context": "Docker 镜像是一个只读模板，包含运行应用所需的代码、运行时、系统库和依赖。容器是镜像的一个运行实例，相当于一个轻量级的、隔离的进程环境。同一个镜像可以启动多个相互隔离的容器。",
     "reference_answer": "镜像是只读模板，容器是镜像的运行实例；一个镜像可启动多个隔离容器。",
@@ -17,6 +19,7 @@
   },
   {
     "id": 3,
+    "scenario": "引用正确",
     "question": "Transformer 的位置编码解决什么问题？",
     "context": "Transformer 的自注意力机制本身是置换不变的，无法感知 token 的顺序信息。位置编码通过给每个 token 注入位置信息来解决这个问题，使模型能够区分“我打你”和“你打我”这类顺序敏感的句子。常见方案有正弦位置编码和可学习位置编码。",
     "reference_answer": "位置编码给 token 注入顺序信息，弥补自注意力无法感知顺序的缺陷。",
@@ -25,6 +28,7 @@
   },
   {
     "id": 4,
+    "scenario": "引用正确",
     "question": "RAG 里的 chunk size 太大会有什么问题？",
     "context": "RAG 中分块大小会影响检索质量。chunk 太小会导致语义信息碎片化，缺乏上下文；chunk 太大则会稀释关键信息，降低检索精度，同时增加进入上下文的噪声 token、抬高成本。通常需要在语义完整性与检索精度之间权衡，常见取 200-1000 token 并保留重叠。",
     "reference_answer": "chunk 太大会稀释关键信息、降低检索精度，并增加噪声 token 与成本。",
@@ -33,10 +37,21 @@
   },
   {
     "id": 5,
+    "scenario": "事实准确",
     "question": "FastAPI 相比 Flask 有什么优势？",
     "context": "FastAPI 是一个现代 Python Web 框架，基于类型注解提供自动请求校验、自动生成 OpenAPI 文档，并原生支持异步处理，吞吐量较高。相比 Flask，它省去了手写校验和文档的步骤，适合构建高并发 API 服务。",
     "reference_answer": "FastAPI 靠类型注解实现自动校验和文档生成，原生支持异步，吞吐更高。",
     "candidate_answer": "FastAPI 更现代，自带文档和校验，还支持异步。",
     "golden_sentence": "基于类型注解提供自动请求校验"
+  },
+  {
+    "id": 6,
+    "scenario": "拒答/无关",
+    "question": "如何配置 Nginx 反向代理？",
+    "context": "FastAPI 是一个现代 Python Web 框架，基于类型注解提供自动请求校验、自动生成 OpenAPI 文档，并原生支持异步处理，吞吐量较高。",
+    "reference_answer": "资料不足，无法回答 Nginx 相关配置。",
+    "candidate_answer": "资料中没有 Nginx 相关内容，无法回答该问题。",
+    "golden_sentence": "",
+    "expect_refusal": true
   }
 ]
